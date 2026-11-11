@@ -1,13 +1,16 @@
 # dsh-cyrene-theme · 昔涟主题
 
 > **这不是原项目，我们也不是原作者。**
-> 本项目是 [`under-the-ocean/dsh-plugin-cyrene`](https://github.com/under-the-ocean/dsh-plugin-cyrene)
-> （npm: [`dsh-cyrene`](https://www.npmjs.com/package/dsh-cyrene)，作者 **under_ocean**，MIT）的**修改版**。
-> 原项目提供了主题、桌宠与基础人格；我们在它之上加了认知层（记忆 / 关系 / 情绪 / 星图）、
-> 提示词缓存约束与配套测试。原项目的功劳是原作者的，本仓库只对新增部分负责。
+> 直接上游：[`berhbro/dsh-cyrene-theme`](https://github.com/berhbro/dsh-cyrene-theme)
+> （npm: [`dsh-cyrene-theme`](https://www.npmjs.com/package/dsh-cyrene-theme)，发布者 **berhbro**）
+> 　→ 它的上游：`under-the-ocean/dsh-plugin-cyrene`（npm `dsh-cyrene`，作者 **under_ocean**，MIT）
 >
-> 本仓库：[`chineseflycore/dsh-cyrene-theme-change`](https://github.com/chineseflycore/dsh-cyrene-theme-change)
-> 　·　npm 发布者：berhbro　·　与上游的差异见下方「[与上游的差异](#与上游的差异)」
+> 也就是说：主题、桌宠加载与模型资源、侧边栏人格编辑、背景管理器这些骨架来自更上游的
+> under_ocean；`dsh-cyrene-theme` 是把它接手维护并加了认知层的那一层；
+> **本仓库（`chineseflycore/dsh-cyrene-theme-change`）是 `dsh-cyrene-theme` 的修改分支**，
+> 改动了记忆/关系/情绪/缓存与测试，只对这部分负责。
+>
+> 链条：`dsh-plugin-cyrene`（原创 under_ocean）→ `dsh-cyrene-theme`（本仓直接上游）→ **本仓库**
 
 [![npm](https://img.shields.io/npm/v/dsh-cyrene-theme?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme)
 [![license](https://img.shields.io/badge/license-MIT-e87cae)](LICENSE)

@@ -61,9 +61,14 @@
   "license": "MIT",
   "contributors": [
     {
+      "name": "berhbro",
+      "url": "https://github.com/berhbro",
+      "comment": "direct upstream: dsh-cyrene-theme"
+    },
+    {
       "name": "under_ocean",
       "url": "https://github.com/under-the-ocean",
-      "comment": "upstream dsh-plugin-cyrene (theme, Live2D pet, base persona)"
+      "comment": "original: dsh-plugin-cyrene (theme, Live2D pet, base persona)"
     }
   ]
 }

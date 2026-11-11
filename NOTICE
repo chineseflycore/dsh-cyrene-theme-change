@@ -4,15 +4,20 @@ SPDX-License-Identifier: MIT
 
 零、来源与上游（重要）
     本项目**不是**原项目，作者也**不是**原作者。
-    上游：under-the-ocean / dsh-plugin-cyrene
+    直接上游：berhbro / dsh-cyrene-theme
+          https://github.com/berhbro/dsh-cyrene-theme
+          npm: dsh-cyrene-theme（发布者 berhbro）
+    更上游：  under-the-ocean / dsh-plugin-cyrene
           https://github.com/under-the-ocean/dsh-plugin-cyrene
           npm: dsh-cyrene（作者 under_ocean，MIT）
-    上游提供：粉白毛玻璃主题、Live2D 桌宠加载与模型资源、侧边栏人格编辑、背景管理器。
-    本仓库：chineseflycore / dsh-cyrene-theme-change（npm 发布者 berhbro）
-    本仓库新增：长期记忆三层、关系与情绪、情绪与记忆联动、
-                提示词缓存约束、记忆星图、世界书、配套测试。
-    原项目的版权与功劳归原作者；本仓库只对其新增部分负责。
-    上游许可为 MIT，本项目同样以 MIT 发布，并按 MIT 要求保留上述版权声明。
+          提供：粉白毛玻璃主题、Live2D 桌宠加载与模型资源、侧边栏人格编辑、背景管理器。
+    本仓库：  chineseflycore / dsh-cyrene-theme-change
+          它是 dsh-cyrene-theme 的修改分支，新增：
+          长期记忆三层、关系与情绪、情绪与记忆联动、提示词缓存约束、
+          记忆星图、世界书、配套测试。
+    链条：dsh-plugin-cyrene（原创 under_ocean）→ dsh-cyrene-theme（直接上游）→ 本仓库。
+    原项目的版权与功劳归原作者与直接上游；本仓库只对其新增部分负责。
+    上游 MIT，本项目同样以 MIT 发布，并按 MIT 要求保留上述版权声明。
 
 本项目以 MIT 许可证发布，完整条款见同目录的 LICENSE 文件。
 使用、修改、再分发与商用均被允许，只需保留本 NOTICE 与 LICENSE 中的版权声明。
