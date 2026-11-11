@@ -99,13 +99,14 @@ ok('新会话按钮是半透明玻璃白（不是纯白）',
   /--dsw-alias-button-elevated-fill:rgba\(255,250,253,\.62\)/.test(source), '仍偏实')
 ok('深色皮肤同样处理', /--dsw-alias-button-elevated-fill:rgba\(62,44,60,\.62\)/.test(source), '深色未处理')
 
-// ── 10. 侧栏两层：一层让位、一层玻璃 ────────────────────────────
-ok('外层在有面板时让位（:has 保护）',
-  /\[data-slot="sidebar"\]:has\(\[data-dockkit-pane\]\)/.test(source), '缺 :has 让位')
-ok('内层面板承载玻璃（底色 + 模糊）',
-  /\[data-slot="sidebar"\] \[data-dockkit-pane\],[\s\S]{0,400}backdrop-filter:blur\(24px\)/.test(source), '缺内层玻璃')
-ok('折射档作用于侧栏玻璃层',
-  /heavy"\] \[data-slot="sidebar"\] \[data-dockkit-pane\]/.test(source), '折射未覆盖侧栏')
+// ── 10. 侧栏抽屉（移动端 .sidebarCol）──────────────────────────
+ok('玻璃画在 [data-dsh-frame] > .sidebarCol 上',
+  /\[data-dsh-frame\] > \[class\*="sidebarCol"\]/.test(source), '没打到抽屉列')
+ok('抽屉有模糊', /sidebarCol"\],[\s\S]{0,200}backdrop-filter:blur\(24px\)/.test(source), '缺模糊')
+ok('里层槽位彻底透明（避免两层叠加透字）',
+  /sidebarCol"\] > \[data-slot="sidebar"\]/.test(source), '里层未让位')
+ok('折射档覆盖抽屉',
+  /heavy"\] \[data-dsh-frame\] > \[class\*="sidebarCol"\]/.test(source), '折射未覆盖')
 
 console.log(`\n${failures.length === 0 ? 'PASS' : 'FAIL'}  ${passed}/${passed + failures.length}`)
 if (failures.length > 0) {
