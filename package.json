@@ -1,0 +1,62 @@
+{
+  "name": "dsh-cyrene-theme",
+  "version": "0.8.0",
+  "description": "昔涟（Cyrene）主题：粉白渐变毛玻璃 UI + 侧边栏可编辑的人格设定 + 表情包 / 背景图 / 世界书 + 认知记忆（L0/L1/L2 分层、成色衰减、语义召回、账本与健康行、压缩反思）与关系情绪 | A Cyrene (Honkai: Star Rail) theme for DeepSeek Harness",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node test/host.persona.stability.spec.mjs && node test/host.smoke.mjs && node test/view.client.smoke.mjs && node test/view.contrast.spec.mjs && node test/host.cognitive.spec.mjs && node test/host.memory.pipeline.spec.mjs && node test/host.memory.ledger.spec.mjs && node test/host.memory.compress.spec.mjs && node test/host.memory.graph.spec.mjs && node test/host.memory.tools.spec.mjs && node test/host.memory-llm.spec.mjs && node test/host.memory-profile.spec.mjs && node test/view.client.memory.spec.mjs && node test/view.graph.spec.mjs && node test/view.live2d-map.spec.mjs && node test/host.live2d.spec.mjs && node test/view.live2d.spec.mjs",
+    "test:host": "node test/host.persona.stability.spec.mjs && node test/host.smoke.mjs && node test/host.cognitive.spec.mjs && node test/host.memory.pipeline.spec.mjs && node test/host.memory.ledger.spec.mjs && node test/host.memory.compress.spec.mjs && node test/host.memory.graph.spec.mjs && node test/host.memory.tools.spec.mjs && node test/host.memory-llm.spec.mjs && node test/host.memory-profile.spec.mjs && node test/host.live2d.spec.mjs",
+    "test:view": "node test/view.client.smoke.mjs && node test/view.contrast.spec.mjs && node test/view.client.memory.spec.mjs && node test/view.graph.spec.mjs && node test/view.live2d-map.spec.mjs && node test/view.live2d.spec.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "stickers.json",
+    "screenshots.json",
+    "Background",
+    "assets/cyrene",
+    "meme/*.png",
+    "meme/*.jpeg",
+    "tools/*.mjs",
+    "docs/*.md",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "skin",
+    "persona"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berhbro/dsh-cyrene-theme.git"
+  },
+  "homepage": "https://github.com/berhbro/dsh-cyrene-theme#readme",
+  "bugs": {
+    "url": "https://github.com/berhbro/dsh-cyrene-theme/issues"
+  },
+  "author": "berhbro",
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "AGPL-3.0-only"
+}

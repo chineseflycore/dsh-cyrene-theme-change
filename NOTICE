@@ -1,0 +1,48 @@
+dsh-cyrene-theme · NOTICE
+Copyright (c) 2026 berhbro
+SPDX-License-Identifier: AGPL-3.0-only
+
+本项目以 GNU Affero General Public License v3.0（AGPL-3.0）发布，
+完整条款见同目录的 LICENSE 文件。
+
+一、星图（记忆星图 / 力导向绘制）
+    设计思路参考 dsh-xingxi（作者 Yuuyuko-uu，插件许可 1.1），
+    仅参考其「把记忆组织成星图」的设计与交互思路，
+    未复制其代码；本项目的宿主侧成图与客户端 canvas 渲染均为自行实现。
+    参考项目：https://github.com/Yuuyuko-uu/dsh-xingxi
+    其原始许可与源码不随本项目分发。
+
+二、记忆 / 关系内核
+    部分算法思路参考：
+      · Cyrene-Agent（MIT，Playa）
+        https://github.com/Playa-0v0/Cyrene-Agent
+      · xilian-agi-like-test（MIT）
+        https://github.com/chineseflycore/xilian-agi-like-test
+    仅参考算法思路，代码按本项目风格重新实现。
+
+三、Live2D 模型（assets/cyrene/）
+    模型作者：是依七哒（B 站个人空间 457683484）。
+    授权沿革：
+      · Cyrene-Agent 是该模型的原始被授权方；
+      · dsh-cyrene 明确声明「继承该授权」并移植了模型；
+      · 本项目（dsh-cyrene-theme）位于该授权链的下游，属「注明原作者的
+        衍生同人作品」一类：允许使用、修改、再分发，非商业用途，须署名原作者。
+    因此：本包内 assets/cyrene/ 下的模型文件与 dsh-cyrene 的移植版本逐字节一致，
+    未做二次修改；分发时请保留本条署名与授权说明。
+    如权利人认为授权范围不包括本项目，请通过 Issues 联系，收到通知后立即移除。
+
+四、Live2D Cubism Core
+    本项目的桌宠渲染使用 Live2D Cubism SDK for Web 的运行时（Cubism Core）。
+    Cubism Core 版权归 Live2D Inc. 所有，按「Live2D Proprietary Software License
+    Agreement」以 Redistributable Code 形式随附，仅可用于本项目的运行时加载，
+    不得单独提取、修改或再分发。
+    许可全文：https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+    Live2D 是 Live2D Inc. 的商标。
+
+五、角色「昔涟」
+    © miHoYo / HoYoverse。
+    本插件为非官方同人作品，与 miHoYo、HoYoverse 及其关联方无任何关联，
+    也未获得其授权或背书。
+
+如权利人认为上述任何内容的使用不妥，请通过项目仓库的 Issues 联系，
+收到通知后将尽快移除相应内容。
