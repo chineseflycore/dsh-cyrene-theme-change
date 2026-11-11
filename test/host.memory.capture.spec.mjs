@@ -45,9 +45,19 @@ ok('非用户来源不推进轮次',
   /authored && text !== ''/.test(source), '仍在无条件推进轮次')
 
 // ── 3. 质量门槛 ──────────────────────────────────────────────────
-ok('短问句不记（<25 字且以问号结尾）',
-  /length < 25 && \/\[\?？\]/.test(source), '缺问句过滤')
+// ── 3. 质量门口：能交给提示词的就别写硬规则 ──────────────────────
+ok('短问句过滤交给提示词（代码里不再硬判）',
+  !/length < 25 && \/\[\?？\]/.test(source), '代码里还留着硬规则')
 ok('仍有最小长度门槛', /AUTO_CAPTURE_MIN_CHARS/.test(source), '缺门槛')
+
+// ── 3.5 「先记再答」的触发词写在提示词里 ─────────────────────────
+const cognit = readFileSync(new URL('../lib/host/cognitive.js', import.meta.url), 'utf8')
+ok('提示词含触发词规则',
+  /「不要」「别再」「以后」「记住」「下次」/.test(cognit), '提示词未写触发词')
+ok('提示词含写记忆的工具名',
+  /cyrene_memory_add/.test(cognit) && /cyrene_memory_search/.test(cognit), '工具名缺失')
+ok('提示词不再提不存在的 cyrene_memory_recall',
+  !/cyrene_memory_recall/.test(cognit), '还在引用错工具名')
 
 // ── 4. 清理工具留下的痕迹（防止又被写回去）──────────────────────
 ok('记忆读取会重建 status/weight（不会复活已清理条目）',
