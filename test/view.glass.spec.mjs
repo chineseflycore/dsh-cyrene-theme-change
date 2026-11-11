@@ -78,6 +78,14 @@ ok('玻璃 token 用 --cyre-glass-a 驱动',
 ok('applySkin 写入 --cyre-glass-a',
   /setProperty\("--cyre-glass-a"/.test(source), '未写入变量')
 
+// ── 7. 折射必须有"可扭的纹理" ─────────────────────────────────────
+ok('存在折射底光层（否则扭出来还是纯色，像塑料）',
+  /GLOW_ID/.test(source) && /ensureGlow\(\)/.test(source), '缺光晕层')
+ok('关掉折射时会移除光晕层',
+  /removeGlow\(\)/.test(source), '缺清理')
+ok('折射铺在大面积窗格上',
+  /backdrop-filter:url\(#cyrene-theme-change-liquid\) blur\(10px\)/.test(source), '只作用于小卡片')
+
 // ── 7. 面板上确实有这两个控件 ────────────────────────────────────
 ok('模板里有折射复选框', /data-role="glassHeavy"/.test(source), '缺控件')
 ok('模板里有透明度滑块', /data-role="glassAlpha"[^>]*type="range"|type="range"[^>]*data-role="glassAlpha"/.test(source), '缺滑块')
