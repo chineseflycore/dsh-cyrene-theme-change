@@ -26,6 +26,19 @@ SPDX-License-Identifier: MIT
       backdrop-filter 会创建 containing block、破坏弹窗浮层，因此不做全局面模糊。
       本项目未复制其代码，仅采用其公开的结论与 API 用法。
 
+    dsh-plugin-liquid-glass（神猫君，MIT）
+      https://github.com/smj-1680/dsh-plugin-liquid-glass
+      参考点：backdrop-filter:url(#svg) 的真折射用法、feTurbulence/feDisplacementMap
+      的实测参数（baseFrequency 0.006/0.010、numOctaves 2、scale 26、滤镜区域 124%）、
+      以及噪声缓慢漂移让折射"活着"的做法。本项目未复制其代码。
+
+    dsh-liquid-glass（Ultronen）与 dsh-plugin-liquid-glass（神猫君）是两个不同项目，
+    前者只做透明度，后者做折射；本项目两种结论都采用了。
+      https://github.com/Ultronen/dsh-liquid-glass
+      参考点：用 ctx.theme.overrideTokens 做半透明而不是自写 --dsw-* 变量；
+      backdrop-filter 会创建 containing block、破坏弹窗浮层，因此不做全局面模糊。
+      本项目未复制其代码，仅采用其公开的结论与 API 用法。
+
 本项目以 MIT 许可证发布，完整条款见同目录的 LICENSE 文件。
 使用、修改、再分发与商用均被允许，只需保留本 NOTICE 与 LICENSE 中的版权声明。
 注意：第三方素材（见三、四节）不因本许可证而改变归属。

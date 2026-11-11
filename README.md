@@ -45,8 +45,14 @@
 
 折射档的操作开销来自 `feDisplacementMap` 的逐像素采样，手机上明显吃 GPU，所以默认关闭。
 
-感谢 [`dsh-liquid-glass`](https://github.com/Ultronen/dsh-liquid-glass)（MIT）验证了
-「只做透明度、不做 backdrop-filter」这条路线，以及 `overrideTokens` 的正确用法。
+感谢两个不同的参考项目（它们不是同一个东西）：
+
+| 项目 | 做法 | 我们借了什么 |
+|---|---|---|
+| [`dsh-liquid-glass`](https://github.com/Ultronen/dsh-liquid-glass)（Ultronen，MIT） | 只做透明度，**不用** `backdrop-filter`；用 `ctx.theme.overrideTokens` 换 token；设置存 localStorage | 「全局面不要用 backdrop-filter」这条结论 |
+| [`dsh-plugin-liquid-glass`](https://github.com/smj-1680/dsh-plugin-liquid-glass)（神猫君，MIT） | 真折射：`backdrop-filter: url(#svg)` + `feTurbulence`/`feDisplacementMap`，噪声缓慢漂移 | 滤镜参数（频率 0.006/0.010、scale 26、区域 124%）与「滤镜放进 backdrop-filter、不要给元素加 filter」的用法 |
+
+两者走了相反的路线，这正好说明：**透明度是便宜的，折射是贵的**，所以我们把它做成开关。
 
 ## 与上游的差异
 
