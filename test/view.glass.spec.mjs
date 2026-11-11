@@ -91,6 +91,14 @@ ok('模板里有折射复选框', /data-role="glassHeavy"/.test(source), '缺控
 ok('模板里有透明度滑块', /data-role="glassAlpha"[^>]*type="range"|type="range"[^>]*data-role="glassAlpha"/.test(source), '缺滑块')
 ok('滑块有样式（默认外观太细不好拖）', /\.cyre-range\{/.test(source), '缺 .cyre-range 样式')
 
+// ── 9. 代码块与新会话按钮的液态玻璃 ──────────────────────────────
+ok('代码块有真模糊', /\[data-code-block-content\]\{[\s\S]{0,240}backdrop-filter:blur\(16px\)/.test(source), '代码块没模糊')
+ok('代码块有上下高光', /\[data-code-block-content\]\{[\s\S]{0,300}inset 0 1px 0 rgba\(255,255,255,\.22\)/.test(source), '缺高光')
+ok('折射档覆盖代码块', /heavy"\] \[data-code-block-content\]/.test(source), '折射没覆盖')
+ok('新会话按钮是半透明玻璃白（不是纯白）',
+  /--dsw-alias-button-elevated-fill:rgba\(255,250,253,\.62\)/.test(source), '仍偏实')
+ok('深色皮肤同样处理', /--dsw-alias-button-elevated-fill:rgba\(62,44,60,\.62\)/.test(source), '深色未处理')
+
 console.log(`\n${failures.length === 0 ? 'PASS' : 'FAIL'}  ${passed}/${passed + failures.length}`)
 if (failures.length > 0) {
   console.log(`失败项：${failures.join(' | ')}`)
