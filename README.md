@@ -1,7 +1,7 @@
 # dsh-cyrene-theme · 昔涟主题
 
 [![npm](https://img.shields.io/npm/v/dsh-cyrene-theme?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme)
-[![license](https://img.shields.io/badge/license-AGPL--3.0-e87cae)](LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-e87cae)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/berhbro/dsh-cyrene-theme?color=e87cae)](https://github.com/berhbro/dsh-cyrene-theme)
 
 把 DSH Web GUI 换成《崩坏：星穹铁道》昔涟（Cyrene）的粉白渐变毛玻璃主题，把 agent 的人格设定改成昔涟——人格提示词可以直接在侧边栏里改——让她在该有情绪的时候贴一张自己的表情包，把新会话欢迎页的鱼换成她、顺手把输入框的默认提示换成她的话，还能把整页背景换成 `Background/` 里放的那几张图（可以在面板里开关、选起点、自动轮换，也能自己上传新的；深色模式下还能自动换成指定的那一张）。
@@ -10,7 +10,7 @@
 >
 > Install: `dsh plugin --profile web add dsh-cyrene-theme` (npm, pinned version) or `… add github:berhbro/dsh-cyrene-theme` (tracks the latest commit) — then reload the page. UI text is Chinese.
 >
-> **Licensed under AGPL-3.0.** Modified versions and network services built on this project must also be open-sourced under the same license. See 「许可证」 below.
+> **Licensed under MIT.** Free to use, modify, and redistribute — just keep the copyright notice. See 「许可证」 below.
 >
 > **Unofficial fan project.** Cyrene and all *Honkai: Star Rail* character art, names and assets are © miHoYo / HoYoverse, used here as non-commercial fan work. Not affiliated with or endorsed by miHoYo, HoYoverse or DeepSeek — see 「致谢」 below.
 
@@ -704,14 +704,16 @@ ev → 409、空正文 → 400、关掉只是不再注入而不删数据、再�
 
 ## 许可证
 
-本项目采用 **GNU Affero General Public License v3.0（AGPL-3.0）**，完整条款见 [`LICENSE`](LICENSE)（官方全文，版权行为 `Copyright (c) 2026 berhbro`）。
+本项目采用 **MIT 许可证**，完整条款见 [`LICENSE`](LICENSE)（版权行为 `Copyright (c) 2026 berhbro`）。
 
-- **修改后分发 / 提供服务需同样开源**：如果你修改了本项目并对外分发，或把它作为网络服务提供给他人使用，必须以 **AGPL-3.0（或更严格）** 公开你修改后的完整源码，并保留版权声明与 [`NOTICE`](NOTICE)。AGPL 第 13 条明确覆盖「通过网络提供服务」这一场景。
-- **个人使用不受影响**：自己安装、自己修改、自己用，不需要公开。
-- **第三方素材不因本许可证而改变归属**：角色与美术素材的权利仍归原权利人（见「致谢」）。
-- 旧版本曾以 MIT 发布；从本次切换起，仓库内代码以 AGPL-3.0-only 为准。
+- **随便用**：使用、修改、合并、发布、再授权、售卖都允许，只需要在副本里保留版权声明和许可声明。
+- **第三方素材不因本许可证而改变归属**：Live2D 模型（见 [`NOTICE`](NOTICE) 第三节）与角色美术的权利仍归原权利人，
+  MIT 只覆盖本项目的代码。模型部分限非商业使用，且必须保留原作者署名。
+- 历史：早期版本曾以 MIT 发布，中途切到过 AGPL-3.0，现统一回到 MIT。
 
-> **In English** — This project is licensed under the **GNU Affero General Public License v3.0** (`AGPL-3.0-only`). If you modify it and distribute it, or make it available to others as a network service, you must release your modified source under the same license (AGPL §13). Copyright (c) 2026 berhbro. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+> **In English** — This project is licensed under the **MIT License**. Copyright (c) 2026 berhbro.
+> See [`LICENSE`](LICENSE). Third-party assets (Live2D model, character art) keep their own terms —
+> see [`NOTICE`](NOTICE) — and are not relicensed by MIT.
 
 ## 致谢
 
@@ -750,7 +752,7 @@ dsh-cyrene-theme/
   meme/                 表情包素材（11 张，jpeg/png，文件名＝表情名字）
   stickers-custom/      面板里自添加的表情包（运行时数据，已 gitignore；不在仓库里）
   （运行时文件）       /cyrene-theme.json 是设定、/cyrene-memory.json 是长期记忆、/cyrene-worldbook.json 是世界书，都不在仓库里
-  LICENSE               AGPL-3.0 全文（版权行 Copyright (c) 2026 berhbro）
+  LICENSE               MIT 全文（版权行 Copyright (c) 2026 berhbro）
   NOTICE                第三方来源与授权状态说明（星图 / 记忆内核 / Live2D / 角色）
   screenshots.json      给插件市场看的截图清单（在 package.json 旁边，市场读它；不进 npm 包）
   docs/screenshots/     市场截图 4 张（DarkTheme / LightTheme / PersonalityManager / BackgroundPanel；只在仓库里，不进 npm 包）

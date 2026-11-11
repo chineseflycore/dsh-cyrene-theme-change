@@ -1,9 +1,10 @@
 dsh-cyrene-theme · NOTICE
 Copyright (c) 2026 berhbro
-SPDX-License-Identifier: AGPL-3.0-only
+SPDX-License-Identifier: MIT
 
-本项目以 GNU Affero General Public License v3.0（AGPL-3.0）发布，
-完整条款见同目录的 LICENSE 文件。
+本项目以 MIT 许可证发布，完整条款见同目录的 LICENSE 文件。
+使用、修改、再分发与商用均被允许，只需保留本 NOTICE 与 LICENSE 中的版权声明。
+注意：第三方素材（见三、四节）不因本许可证而改变归属。
 
 一、星图（记忆星图 / 力导向绘制）
     设计思路参考 dsh-xingxi（作者 Yuuyuko-uu，插件许可 1.1），

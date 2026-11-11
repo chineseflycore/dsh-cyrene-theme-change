@@ -95,7 +95,7 @@ Live2D 三件套的加载顺序是**固定**的：`live2dcubismcore.min.js` → 
 
 ```
 dsh-cyrene（主题 + Live2D 桌宠）
-    └─ fork → dsh-cyrene-theme（本项目，AGPL-3.0）
+    └─ fork → dsh-cyrene-theme（本项目，MIT）
                  └─ 合并 Cyrene-Agent 的认知层（记忆/关系/情绪/星图）
 ```
 
