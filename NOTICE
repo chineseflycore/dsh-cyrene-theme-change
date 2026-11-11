@@ -12,7 +12,7 @@ SPDX-License-Identifier: MIT
           npm: dsh-cyrene（作者 under_ocean，MIT）
           提供：粉白毛玻璃主题、Live2D 桌宠加载与模型资源、侧边栏人格编辑、背景管理器。
     本仓库：  chineseflycore / dsh-cyrene-theme-change
-          它是 dsh-cyrene-theme 的修改分支，新增：
+          它是 dsh-cyrene-theme 的社区分支，仅做功能增加：
           长期记忆三层、关系与情绪、情绪与记忆联动、提示词缓存约束、
           记忆星图、世界书、配套测试。
     链条：dsh-plugin-cyrene（原创 under_ocean）→ dsh-cyrene-theme（直接上游）→ 本仓库。

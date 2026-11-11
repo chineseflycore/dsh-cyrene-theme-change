@@ -6,9 +6,9 @@
 > 　→ 它的上游：`under-the-ocean/dsh-plugin-cyrene`（npm `dsh-cyrene`，作者 **under_ocean**，MIT）
 >
 > 也就是说：主题、桌宠加载与模型资源、侧边栏人格编辑、背景管理器这些骨架来自更上游的
-> under_ocean；`dsh-cyrene-theme` 是把它接手维护并加了认知层的那一层；
-> **本仓库（`chineseflycore/dsh-cyrene-theme-change`）是 `dsh-cyrene-theme` 的修改分支**，
-> 改动了记忆/关系/情绪/缓存与测试，只对这部分负责。
+> under_ocean，`dsh-cyrene-theme` 是本仓库的直接上游；
+> **本仓库（`chineseflycore/dsh-cyrene-theme-change`）是社区分支**，
+> 在上游基础上做功能增加（记忆/关系/情绪/缓存与测试），只对新增部分负责，不代表上游立场。
 >
 > 链条：`dsh-plugin-cyrene`（原创 under_ocean）→ `dsh-cyrene-theme`（本仓直接上游）→ **本仓库**
 
