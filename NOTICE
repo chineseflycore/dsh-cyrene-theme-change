@@ -19,6 +19,13 @@ SPDX-License-Identifier: MIT
     原项目的版权与功劳归原作者与直接上游；本仓库只对其新增部分负责。
     上游 MIT，本项目同样以 MIT 发布，并按 MIT 要求保留上述版权声明。
 
+参考与致谢
+    dsh-liquid-glass（Ultronen，MIT）
+      https://github.com/Ultronen/dsh-liquid-glass
+      参考点：用 ctx.theme.overrideTokens 做半透明而不是自写 --dsw-* 变量；
+      backdrop-filter 会创建 containing block、破坏弹窗浮层，因此不做全局面模糊。
+      本项目未复制其代码，仅采用其公开的结论与 API 用法。
+
 本项目以 MIT 许可证发布，完整条款见同目录的 LICENSE 文件。
 使用、修改、再分发与商用均被允许，只需保留本 NOTICE 与 LICENSE 中的版权声明。
 注意：第三方素材（见三、四节）不因本许可证而改变归属。

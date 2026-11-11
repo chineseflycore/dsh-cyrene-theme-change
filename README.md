@@ -26,6 +26,28 @@
 >
 > **Unofficial fan project.** Cyrene and all *Honkai: Star Rail* character art, names and assets are © miHoYo / HoYoverse, used here as non-commercial fan work. Not affiliated with or endorsed by miHoYo, HoYoverse or DeepSeek — see 「致谢」 below.
 
+## 液态玻璃
+
+三档，从省到贵：
+
+| 档 | 做法 | 默认 |
+|---|---|---|
+| 关 | 普通毛玻璃（原有主题） | — |
+| **透明** | `ctx.theme.overrideTokens` 把「面」的 token 换成半透明，背景图透上来 | ✅ 开启 |
+| **折射** | 再叠一层 SVG `feTurbulence` + `feDisplacementMap` 做真实折射 | 关（开销大，在面板里开） |
+
+两条从实测里换来的硬约束：
+
+1. **不用 `backdrop-filter` 做全局面**。它会创建 containing block，把设置弹窗和浮层搞坏
+   （`dsh-liquid-glass` 也踩过这个坑并因此放弃；我们之前给 shell.overlay 加模糊，整窗糊掉）。
+2. **折射层只挂在 `::before` 上，且只作用于本插件自己的 `.cyre-*` 元素**。
+   挂在元素本身会把文字一起扭曲；碰 `[data-slot]` 槽位会连累整个窗口。
+
+折射档的操作开销来自 `feDisplacementMap` 的逐像素采样，手机上明显吃 GPU，所以默认关闭。
+
+感谢 [`dsh-liquid-glass`](https://github.com/Ultronen/dsh-liquid-glass)（MIT）验证了
+「只做透明度、不做 backdrop-filter」这条路线，以及 `overrideTokens` 的正确用法。
+
 ## 与上游的差异
 
 上游 [`dsh-plugin-cyrene`](https://github.com/under-the-ocean/dsh-plugin-cyrene) 提供的是
