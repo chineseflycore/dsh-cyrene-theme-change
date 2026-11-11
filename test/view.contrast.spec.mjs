@@ -43,7 +43,9 @@ function parse(value) {
     const [r, g, b] = [...m[1]].map((c) => parseInt(c + c, 16))
     return [r, g, b, 1]
   }
-  m = /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+)\s*)?\)$/i.exec(value)
+  // 玻璃 token 用 var(--cyre-glass-a, 默认值)；静态检查只认默认档。
+  const resolved = value.replace(/var\(--cyre-glass-a\s*,\s*([^)]+)\)/g, "$1")
+  m = /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+)\s*)?\)$/i.exec(resolved)
   if (m) return [Number(m[1]), Number(m[2]), Number(m[3]), m[4] === undefined ? 1 : Number(m[4])]
   throw new Error(`cannot parse color: ${value}`)
 }

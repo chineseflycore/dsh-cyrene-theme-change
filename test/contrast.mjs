@@ -43,7 +43,10 @@ function parse(value) {
     const [r, g, b] = [...m[1]].map((c) => parseInt(c + c, 16))
     return [r, g, b, 1]
   }
-  m = /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+)\s*)?\)$/i.exec(value)
+  // 玻璃 token 用 var(--cyre-glass-a, 默认值) 让滑块统一调透明度；对比度检查
+  // 只认默认值那一档（极端透明度下的对比取决于用户选的背景图，无法静态判定）。
+  const resolved = value.replace(/var\(--cyre-glass-a\s*,\s*([^)]+)\)/g, "$1")
+  m = /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+)\s*)?\)$/i.exec(resolved)
   if (m) return [Number(m[1]), Number(m[2]), Number(m[3]), m[4] === undefined ? 1 : Number(m[4])]
   throw new Error(`cannot parse color: ${value}`)
 }
