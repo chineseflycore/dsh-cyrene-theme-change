@@ -182,7 +182,8 @@ await ok('画像里能读到称呼与在忙的事',
 const memorySection = lastOf(A.sections, 'cyrene:memory')
 await ok('记忆 section 注入了画像，并带护栏话术',
   memorySection !== undefined && /称呼：.*小满/.test(memorySection.text) &&
-  /要记住新的事/.test(memorySection.text), memorySection?.text?.slice(0, 120))
+  /什么时候该写记忆/.test(memorySection.text) && /cyrene_memory_add/.test(memorySection.text),
+  memorySection?.text?.slice(0, 120))
 
 // ── 4. 语义召回 + touch ───────────────────────────────────────────
 const searchTool = A.tools.get('cyrene_memory_search')

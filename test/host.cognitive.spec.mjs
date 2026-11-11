@@ -249,9 +249,15 @@ await test('注入：预算优先保画像，L1/L2 先让位', () => {
       l1: { currentProject: '很长的项目描述'.repeat(40) },
       recalled: [{ text: '旧事'.repeat(100), created: new Date(NOW).toISOString() }],
     },
-    { budget: 200 },
+    { budget: 600 },
   )
   assert.ok(text.includes('称呼：P 宝'), '画像必须留下')
+  // 这个用例的 L1 故意写得极长，正文会把预算吃满，尾护栏被挤掉是**预期**行为
+  // （护栏的"必在"由上面 budget=2000 那条独立保证）。
+  // 小预算时护栏降级成短句，但正文不能整段消失（曾经在这里被挤空）
+  const tiny = C.buildInjection({ l0: { preferredName: 'P 宝' }, recalled: [] }, { budget: 200 })
+  assert.ok(tiny.includes('称呼：P 宝'), '预算很小时画像仍要在')
+  assert.ok(tiny.includes('cyrene_memory_add'), '预算很小时短护栏仍要在')
 })
 
 await test('注入预算：默认 2000，环境变量可覆盖并夹在 400–4000', () => {
