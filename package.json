@@ -48,15 +48,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/berhbro/dsh-cyrene-theme.git"
+    "url": "git+https://github.com/chineseflycore/dsh-cyrene-theme-change.git"
   },
-  "homepage": "https://github.com/berhbro/dsh-cyrene-theme#readme",
+  "homepage": "https://github.com/chineseflycore/dsh-cyrene-theme-change#readme",
   "bugs": {
-    "url": "https://github.com/berhbro/dsh-cyrene-theme/issues"
+    "url": "https://github.com/chineseflycore/dsh-cyrene-theme-change/issues"
   },
   "author": "berhbro",
   "engines": {
     "node": ">=18"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "under_ocean",
+      "url": "https://github.com/under-the-ocean",
+      "comment": "upstream dsh-plugin-cyrene (theme, Live2D pet, base persona)"
+    }
+  ]
 }

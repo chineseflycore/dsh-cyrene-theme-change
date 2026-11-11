@@ -1,18 +1,45 @@
 # dsh-cyrene-theme · 昔涟主题
 
+> **这不是原项目，我们也不是原作者。**
+> 本项目是 [`under-the-ocean/dsh-plugin-cyrene`](https://github.com/under-the-ocean/dsh-plugin-cyrene)
+> （npm: [`dsh-cyrene`](https://www.npmjs.com/package/dsh-cyrene)，作者 **under_ocean**，MIT）的**修改版**。
+> 原项目提供了主题、桌宠与基础人格；我们在它之上加了认知层（记忆 / 关系 / 情绪 / 星图）、
+> 提示词缓存约束与配套测试。原项目的功劳是原作者的，本仓库只对新增部分负责。
+>
+> 本仓库：[`chineseflycore/dsh-cyrene-theme-change`](https://github.com/chineseflycore/dsh-cyrene-theme-change)
+> 　·　npm 发布者：berhbro　·　与上游的差异见下方「[与上游的差异](#与上游的差异)」
+
 [![npm](https://img.shields.io/npm/v/dsh-cyrene-theme?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme)
 [![license](https://img.shields.io/badge/license-MIT-e87cae)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/berhbro/dsh-cyrene-theme?color=e87cae)](https://github.com/berhbro/dsh-cyrene-theme)
+[![GitHub stars](https://img.shields.io/github/stars/chineseflycore/dsh-cyrene-theme-change?color=e87cae)](https://github.com/chineseflycore/dsh-cyrene-theme-change)
 
 把 DSH Web GUI 换成《崩坏：星穹铁道》昔涟（Cyrene）的粉白渐变毛玻璃主题，把 agent 的人格设定改成昔涟——人格提示词可以直接在侧边栏里改——让她在该有情绪的时候贴一张自己的表情包，把新会话欢迎页的鱼换成她、顺手把输入框的默认提示换成她的话，还能把整页背景换成 `Background/` 里放的那几张图（可以在面板里开关、选起点、自动轮换，也能自己上传新的；深色模式下还能自动换成指定的那一张）。
 
 > **English** — A pink-and-white frosted-glass skin for the DSH Web GUI, themed after Cyrene from *Honkai: Star Rail*. It also rewrites the agent persona (editable from the sidebar), teaches the agent to post Cyrene reaction stickers, replaces the new-session hero fish with her, and adds a full-page background manager (enable / pick / rotate / fade the images in `Background/`, upload your own, and bind one image to dark mode).
 >
-> Install: `dsh plugin --profile web add dsh-cyrene-theme` (npm, pinned version) or `… add github:berhbro/dsh-cyrene-theme` (tracks the latest commit) — then reload the page. UI text is Chinese.
+> Install: `dsh plugin --profile web add dsh-cyrene-theme` (npm, pinned version) or `… add github:chineseflycore/dsh-cyrene-theme-change` (tracks the latest commit) — then reload the page. UI text is Chinese.
 >
 > **Licensed under MIT.** Free to use, modify, and redistribute — just keep the copyright notice. See 「许可证」 below.
 >
 > **Unofficial fan project.** Cyrene and all *Honkai: Star Rail* character art, names and assets are © miHoYo / HoYoverse, used here as non-commercial fan work. Not affiliated with or endorsed by miHoYo, HoYoverse or DeepSeek — see 「致谢」 below.
+
+## 与上游的差异
+
+上游 [`dsh-plugin-cyrene`](https://github.com/under-the-ocean/dsh-plugin-cyrene) 提供的是
+**主题 + 桌宠 + 可编辑人格**。本仓库在它基础上做了这些事：
+
+| 新增 | 说明 |
+|---|---|
+| 长期记忆 | L0 画像 / L1 事实 / L2 片段三层，成色衰减、语义召回、账本对账、压缩反思 |
+| 关系与情绪 | affinity / trust / familiarity 三轴；六维情绪环；久不联系会衰减 |
+| 情绪 ↔ 记忆联动 | 召回命中旧记忆（>3 天）时点亮亲密感，不再"记得但无动于衷" |
+| 提示词缓存约束 | 系统提示词逐字节稳定；易变字段量化成档位，排序改纯函数 |
+| 记忆星图 | 力导向可视化（只参考 dsh-xingxi 的设计思路，代码自行实现） |
+| 世界书 | 设定库按关键词检索，常驻只留一行索引 |
+| 配套测试 | 64 个套件，含「人格稳定性」回归（不依赖模型，零成本） |
+
+反过来，**上游的贡献也是真的**：粉白毛玻璃主题、Live2D 桌宠加载与模型资源、
+侧边栏人格编辑、背景管理器，这些骨架都来自 under_ocean，不是我们写的。
 
 ## 能力
 
