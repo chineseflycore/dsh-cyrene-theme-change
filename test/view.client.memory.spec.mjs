@@ -15,7 +15,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
 const CLIENT = new URL('../lib/client.js', import.meta.url)
-const PACKAGE_ID = 'dsh-cyrene-theme'
+const PACKAGE_ID = 'dsh-cyrene-theme-change'
 
 let passed = 0
 const failures = []

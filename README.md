@@ -1,4 +1,4 @@
-# dsh-cyrene-theme · 昔涟主题
+# dsh-cyrene-theme-change · 昔涟主题（社区分支）
 
 > **这不是原项目，我们也不是原作者。**
 > 直接上游：[`berhbro/dsh-cyrene-theme`](https://github.com/berhbro/dsh-cyrene-theme)
@@ -12,7 +12,7 @@
 >
 > 链条：`dsh-plugin-cyrene`（原创 under_ocean）→ `dsh-cyrene-theme`（本仓直接上游）→ **本仓库**
 
-[![npm](https://img.shields.io/npm/v/dsh-cyrene-theme?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme)
+[![npm](https://img.shields.io/npm/v/dsh-cyrene-theme-change?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme-change)
 [![license](https://img.shields.io/badge/license-MIT-e87cae)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/chineseflycore/dsh-cyrene-theme-change?color=e87cae)](https://github.com/chineseflycore/dsh-cyrene-theme-change)
 
@@ -20,7 +20,7 @@
 
 > **English** — A pink-and-white frosted-glass skin for the DSH Web GUI, themed after Cyrene from *Honkai: Star Rail*. It also rewrites the agent persona (editable from the sidebar), teaches the agent to post Cyrene reaction stickers, replaces the new-session hero fish with her, and adds a full-page background manager (enable / pick / rotate / fade the images in `Background/`, upload your own, and bind one image to dark mode).
 >
-> Install: `dsh plugin --profile web add dsh-cyrene-theme` (npm, pinned version) or `… add github:chineseflycore/dsh-cyrene-theme-change` (tracks the latest commit) — then reload the page. UI text is Chinese.
+> Install: `dsh plugin --profile web add dsh-cyrene-theme-change` (npm) or `… add github:chineseflycore/dsh-cyrene-theme-change` (tracks the latest commit) — then reload the page. UI text is Chinese.
 >
 > **Licensed under MIT.** Free to use, modify, and redistribute — just keep the copyright notice. See 「许可证」 below.
 >
@@ -65,19 +65,19 @@
 从本地目录（开发时就地改）：
 
 ```powershell
-dsh plugin --profile desktop add D:\dshWorkPlace\dsh-cyrene-theme
+dsh plugin --profile desktop add D:\dshWorkPlace\dsh-cyrene-theme-change
 ```
 
 从 npm（发布版，版本号固定；`--profile` 换成你自己的 profile 名，Web 端一般是 `web`，桌面端是 `desktop`）：
 
 ```powershell
-dsh plugin --profile desktop add dsh-cyrene-theme
+dsh plugin --profile desktop add dsh-cyrene-theme-change
 ```
 
 从 GitHub（跟随 `main` 的最新提交，能拿到还没发版的改动）：
 
 ```powershell
-dsh plugin --profile desktop add github:berhbro/dsh-cyrene-theme
+dsh plugin --profile desktop add github:chineseflycore/dsh-cyrene-theme-change
 ```
 
 装完刷新一次页面：客户端半的 bundle 是页面加载时读的，不刷新还是旧的。（`files` 里已包含 `Background/`、`meme/`、`stickers.json`，所以从 GitHub 装也带素材。）

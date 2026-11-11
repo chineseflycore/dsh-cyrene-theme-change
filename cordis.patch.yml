@@ -2,4 +2,4 @@
 # 安装：dsh plugin --profile desktop add D:\dshWorkPlace\dsh-cyrene-theme
 - insert:
     - id: ui-cyrene-theme
-      name: dsh-cyrene-theme
+      name: dsh-cyrene-theme-change
