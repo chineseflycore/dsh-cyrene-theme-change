@@ -92,7 +92,7 @@ ok('摘要条目：成色取被压缩条目的均值（0.4 与 0.6 → 0.5）',
   [summaryEntry.weight, summaryEntry.status])
 ok('摘要条目：标签取并集，且不钉住', summaryEntry.tags.join('/') === '出行/海' && summaryEntry.pinned === false,
   summaryEntry.tags)
-ok('阈值参数与实施单一致（120 条触发 / 一次 20 条）', COMPRESS_ACTIVE_LIMIT === 120 && COMPRESS_BATCH === 20,
+ok('阈值参数与实施单一致（60 条触发 / 一次 20 条）', COMPRESS_ACTIVE_LIMIT === 60 && COMPRESS_BATCH === 20,
   [COMPRESS_ACTIVE_LIMIT, COMPRESS_BATCH])
 
 // ── 2. 集成：写入后触发压缩 ─────────────────────────────────────
@@ -176,7 +176,7 @@ function makeRes() {
 }
 
 const now = Date.now()
-const bulk = Array.from({ length: 125 }, (_, index) => ({
+const bulk = Array.from({ length: 65 }, (_, index) => ({
   id: `mem-bulk-${String(index).padStart(4, '0')}`,
   text: `事件编号 ${String(index).padStart(3, '0')}：第 ${index} 次记录的第一句。marker${String(index).padStart(3, '0')} 是来源标记。`,
   tags: ['事件'],
@@ -210,8 +210,8 @@ async function route(method, path, body) {
 }
 
 const before = (await route('GET', '/cyrene/memory')).value.value
-ok('压缩前：125 条 active，没有摘要条目',
-  before.count === 125 && before.items.every((item) => item.status === 'active') &&
+ok('压缩前：65 条 active，没有摘要条目',
+  before.count === 65 && before.items.every((item) => item.status === 'active') &&
     before.items.every((item) => item.isSummary !== true),
   [before.count, before.items.filter((item) => item.isSummary === true).length])
 
@@ -275,7 +275,7 @@ ok('重新加载后摘要还在、来源仍是 archived',
     reloadedSource.status === 'archived',
   [reloadedSummary?.subEntryIds?.length, reloadedSource?.status])
 
-// 再写一条：active 已经回到 107（<=120），不应再压一条。
+// 再写一条：active 已经回到 45（<=60），不应再压一条。
 const addedAgain = await addTool.execute({ text: '顺手把评审会的时间改到下午三点' })
 const afterAgain = (await route('GET', '/cyrene/memory')).value.value
 ok('active 回落到阈值以下后不再触发压缩',
