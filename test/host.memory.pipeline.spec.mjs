@@ -249,8 +249,8 @@ await ok('落盘条目带 v2 字段（weight/status/layer）',
 // 规则驱动写入：一句正常的话聊完，就该有一条自动落的 L2，不等模型调工具。
 await new Promise((resolve) => setTimeout(resolve, 60))
 const afterTurn = JSON.parse(await readFile(MEMORY_PATH, 'utf8'))
-await ok('每轮自动落一条 L2（规则驱动，不依赖模型自觉）',
-  afterTurn.items.some((item) => item.auto === true && item.layer === 'L2'),
+await ok('不再自动落库（改回模型自觉 + 可选 LLM 整理）',
+  !afterTurn.items.some((item) => item.auto === true),
   afterTurn.items.map((item) => [item.layer, item.auto === true]))
 
 // ── 8. 关闭开关后整体静默 ─────────────────────────────────────────
