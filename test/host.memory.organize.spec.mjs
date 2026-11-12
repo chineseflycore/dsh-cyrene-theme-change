@@ -48,8 +48,10 @@ ok('提示词禁止创作', /不创作/.test(llm), '缺约束')
 ok('没有 captureTurnMemory 路径', !/captureTurnMemory/.test(host), '还在自动记')
 ok('没有同主题自动合并', !/consolidateByVector/.test(host), '还在自动合并')
 ok('有 organize 工具', /cyrene_memory_organize/.test(host), '缺工具')
-ok('默认模型是免费的 GLM-4.7-Flash',
-  /DEFAULT_MEMORY_MODEL = 'glm-4\.7-flash'/.test(host), '默认模型未设置')
+ok('不强制默认模型（用户自己选）',
+  !/DEFAULT_MEMORY_MODEL/.test(host), '还在强制某个模型')
+ok('提供可选模型列表接口', /route === '\/memory\/models'/.test(host), '缺 /memory/models')
+ok('列表来自 host 的 listModels', /listModels\(id\)/.test(host), '未调用 listModels')
 
 console.log(`\n${failures.length === 0 ? 'PASS' : 'FAIL'}  ${passed}/${passed + failures.length}`)
 if (failures.length > 0) {

@@ -389,13 +389,11 @@ ok('降级压缩：来源全部转 archived',
 badLlm.providers = []
 await route('POST', '/cyrene/memory/llm', JSON.stringify({ timeoutMs: 5000 }))
 const noProvider = await route('GET', '/cyrene/memory/llm')
-ok('无 provider：GET /cyrene/memory/llm 返回 available=false + 空 provider + 默认模型 + 原因',
+ok('无 provider：GET /cyrene/memory/llm 返回 available=false + 空 provider/model + 原因',
   noProvider.status === 200 && noProvider.value.ok === true &&
     noProvider.value.value.available === false &&
     noProvider.value.value.provider === '' &&
-    // 没有 provider 时模型名会预置成默认的免费档（glm-4.7-flash），
-    // 但 available 仍必须是 false —— 能不能调取决于 provider，不是模型名。
-    noProvider.value.value.model === 'glm-4.7-flash' &&
+    noProvider.value.value.model === '' &&
     noProvider.value.value.lastError === '没有可用的 LLM provider',
   noProvider.value)
 
