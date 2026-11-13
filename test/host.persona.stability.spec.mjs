@@ -112,7 +112,7 @@ await test('旧记忆命中：亲密感被点亮', () => {
 console.log('\n人格底稿')
 
 await test('保留口吻 / 边界 / 样例三块', async () => {
-  const src = await readFile(new URL('../lib/index.js', import.meta.url), 'utf8')
+  const src = await readFile(new URL('../lib/host/state.js', import.meta.url), 'utf8')
   assert.ok(src.includes('【口吻】'), '缺【口吻】')
   assert.ok(src.includes('【必须守住的边界】'), '缺【必须守住的边界】')
   assert.ok(src.includes('【说话样例】'), '缺【说话样例】')

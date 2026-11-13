@@ -380,7 +380,7 @@ body[data-dsh-cyrene] [data-composer-input][data-placeholder^="Describe what you
 - 被 `cyrene_memory_search` 召回一次：成色 `+0.02`（封顶 0.68），访问计数 +1——**用得多的记忆更难忘**。
 - 状态三档：`active`（≥0.4，正常注入）、`aging`（0.1–0.4，仍在库里但排后面）、`archived`（<0.1，不再自动注入，但搜索还能搜到）。
 
-数值口径与来源：衰减曲线参照 xilian-agi-like-test 的 `core/memory_pool.py`，召回打分 `0.75·相似度 + 0.15·成色 + 0.10·新鲜度` 参照远端那份记忆系统实施单。两条都是**纯函数**，见 `lib/cognitive.js`。
+数值口径与来源：衰减曲线参照 xilian-agi-like-test 的 `core/memory_pool.py`，召回打分 `0.75·相似度 + 0.15·成色 + 0.10·新鲜度` 参照远端那份记忆系统实施单。两条都是**纯函数**，见 `lib/host/cognitive.js`。
 
 ### 检索不是子串匹配
 
@@ -499,15 +499,15 @@ node tools/memory-ledger.mjs --verify   # 备份前对账；对不上退出码 1
 
 | 实施单章节 | 本仓库实现 | 落地方式 |
 | --- | --- | --- |
-| **§5.1 人格保护** | `lib/cognitive.js` 的 `buildInjection`（护栏话术 + 2000 字预算、超预算时 L0 最后让位）；`lib/index.js` 的 `memoryText` / `remountMemory`（记忆走独立的 `cyrene:memory` section，绝不改 `cyrene:persona`） | 记忆只追加在「知道什么」这一段，人格正文只由人格 section 决定；关掉记忆开关时记忆与关系两段一起卸，数据一条不删。 |
-| **§5.2 文本账本** | `lib/ledger.js`（`sha256` / `init` / `sync` / `verify`）、`tools/memory-ledger.mjs`、`GET /cyrene/memory/ledger`；记忆写入后自动 `sync` | 账本 `{ id: { sha256, len } }`；`sync` **只补新 id、老记录绝不覆盖**；`verify` 失败退出码 1；删除与合并会如实报 `missing` / `mismatched`，不为了变绿而抹证据。 |
+| **§5.1 人格保护** | `lib/host/cognitive.js` 的 `buildInjection`（护栏话术 + 2000 字预算、超预算时 L0 最后让位）；`lib/index.js` 的 `memoryText` / `remountMemory`（记忆走独立的 `cyrene:memory` section，绝不改 `cyrene:persona`） | 记忆只追加在「知道什么」这一段，人格正文只由人格 section 决定；关掉记忆开关时记忆与关系两段一起卸，数据一条不删。 |
+| **§5.2 文本账本** | `lib/host/ledger.js`（`sha256` / `init` / `sync` / `verify`）、`tools/memory-ledger.mjs`、`GET /cyrene/memory/ledger`；记忆写入后自动 `sync` | 账本 `{ id: { sha256, len } }`；`sync` **只补新 id、老记录绝不覆盖**；`verify` 失败退出码 1；删除与合并会如实报 `missing` / `mismatched`，不为了变绿而抹证据。 |
 | **§5.3 每日健康一行** | `GET /cyrene/memory/health`（`line` + 结构化字段）、`cyrene_memory_stats` 工具 | 行格式与实施单一致（`total / pinned / active / aging / archived / inject_cap / ledger / pending`）；`pending` 恒 0，字段保留给巡检脚本。 |
-| **§9.1 两路检索与打分公式** | `lib/cognitive.js` 的 `tokenize` / `similarity` / `scoreRecall`；`lib/index.js` 的 `searchMemories` | 本机零依赖、没有向量后端，所以「两路」里的关键词路用**中文 2-gram**（英文/数字按词）；公式原样落地：`0.75·sim + 0.15·weight + 0.10·freshness`，`freshness = 1/(1+age_days/7)`；情绪与钉住只是温和加成，不改变主项次序。 |
-| **§9.3 遗忘曲线** | `lib/cognitive.js` 的 `decayWeight` / `touchWeight` / `PIN_WEIGHT`；`lib/index.js` 的 `pinMemory` | 每日跌幅封顶 `0.03`、地板 `0.05`、`≥0.7` 永不衰减；召回 `+0.02`、封顶 `0.68`；钉住 = 抬到 0.7 保护线以上，取消钉住回到 0.69（否则下次启动会被「≥0.7 自动钉住」复活）。 |
-| **§9.4 账本核心** | `lib/ledger.js` | `sha256(text)`、`{ id: { sha256, len } }`、init / sync / verify 三条语义与实施单一致。 |
-| **§9.5 参数与反思** | `lib/cognitive.js` 的 `COMPRESS_ACTIVE_LIMIT` / `COMPRESS_BATCH` / `buildSummaryEntry`；`lib/index.js` 的 `maybeCompressMemories` | active L2 超过 120 条触发、一次 20 条；摘要纯规则生成（时间范围 + 标签并集 + 首句），不调 LLM。 |
+| **§9.1 两路检索与打分公式** | `lib/host/cognitive.js` 的 `tokenize` / `similarity` / `scoreRecall`；`lib/index.js` 的 `searchMemories` | 本机零依赖、没有向量后端，所以「两路」里的关键词路用**中文 2-gram**（英文/数字按词）；公式原样落地：`0.75·sim + 0.15·weight + 0.10·freshness`，`freshness = 1/(1+age_days/7)`；情绪与钉住只是温和加成，不改变主项次序。 |
+| **§9.3 遗忘曲线** | `lib/host/cognitive.js` 的 `decayWeight` / `touchWeight` / `PIN_WEIGHT`；`lib/index.js` 的 `pinMemory` | 每日跌幅封顶 `0.03`、地板 `0.05`、`≥0.7` 永不衰减；召回 `+0.02`、封顶 `0.68`；钉住 = 抬到 0.7 保护线以上，取消钉住回到 0.69（否则下次启动会被「≥0.7 自动钉住」复活）。 |
+| **§9.4 账本核心** | `lib/host/ledger.js` | `sha256(text)`、`{ id: { sha256, len } }`、init / sync / verify 三条语义与实施单一致。 |
+| **§9.5 参数与反思** | `lib/host/cognitive.js` 的 `COMPRESS_ACTIVE_LIMIT` / `COMPRESS_BATCH` / `buildSummaryEntry`；`lib/index.js` 的 `maybeCompressMemories` | active L2 超过 120 条触发、一次 20 条；摘要纯规则生成（时间范围 + 标签并集 + 首句），不调 LLM。 |
 
-三份上游资料各自贡献了什么、哪些还没接，见 `lib/cognitive.js` 与 `lib/relationship.js` 的文件头。
+三份上游资料各自贡献了什么、哪些还没接，见 `lib/host/cognitive.js` 与 `lib/host/relationship.js` 的文件头。
 
 ## 关系与情绪
 
