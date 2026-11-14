@@ -1,4 +1,4 @@
-# dsh-cyrene-theme-change · 昔涟主题（社区分支）
+# dsh-cyrene-theme-change · 昔涟角色套件（社区分支）
 
 > **这不是原项目，我们也不是原作者。**
 > 直接上游：[`berhbro/dsh-cyrene-theme`](https://github.com/berhbro/dsh-cyrene-theme)
@@ -11,6 +11,15 @@
 > 在上游基础上做功能增加（记忆/关系/情绪/缓存与测试），只对新增部分负责，不代表上游立场。
 >
 > 链条：`dsh-plugin-cyrene`（原创 under_ocean）→ `dsh-cyrene-theme`（本仓直接上游）→ **本仓库**
+>
+> **两条血脉**（重要）：
+> - **骨架**：主题、桌宠、人格编辑、背景管理 —— 来自 `dsh-cyrene-theme` / `dsh-plugin-cyrene`；
+> - **灵魂**：认知记忆、关系情绪、世界书、黄金裔委托、纯文本对话模式 —— 思路与素材来自
+>   [`Cyrene-Agent`](https://github.com/Playa-Cyrene/Cyrene-Agent)（MIT，Playa），
+>   其中「纯文本模式」的装配经 [`DSH-Cyrene`](https://github.com/Cyrene-xl/DSH-Cyrene)（MIT）移植。
+>
+> 所以它**已经不是单纯的「主题」**：theme 只是外壳，记忆 / 角色 / 委托 / 预设是另外几块。
+> 名字里的 `theme` 是历史包袱，不是现状。
 
 [![npm](https://img.shields.io/npm/v/dsh-cyrene-theme-change?label=npm&color=e87cae)](https://www.npmjs.com/package/dsh-cyrene-theme-change)
 [![license](https://img.shields.io/badge/license-MIT-e87cae)](LICENSE)
@@ -67,7 +76,10 @@
 | 提示词缓存约束 | 系统提示词逐字节稳定；易变字段量化成档位，排序改纯函数 |
 | 记忆星图 | 力导向可视化（只参考 dsh-xingxi 的设计思路，代码自行实现） |
 | 世界书 | 设定库按关键词检索，常驻只留一行索引 |
-| 配套测试 | 64 个套件，含「人格稳定性」回归（不依赖模型，零成本） |
+| 黄金裔委托 | 12 位角色卡（人设 / 头像 / 独立记忆 / 星图 / 整理）；`spawn_teammate` 委托 + 同角色不重复 spawn 的租约 guard；会话头部与面板展示「谁在干活」 |
+| 角色独立记忆 | 每位黄金裔一份 `cyrene-characters/<slug>.json`：分层 + 768 维向量 + 衰减/钉住 + 整理，和本体同一套 `memory-core` 内核 |
+| 纯文本对话模式 | 可选预设 `preset/chat/`：整份替换人格、只挂联网搜索 + `remember`/`forget`；`node scripts/install-preset.mjs` 安装 |
+| 配套测试 | 21 个测试套件，含「人格稳定性」回归（不依赖模型，零成本） |
 
 反过来，**上游的贡献也是真的**：粉白毛玻璃主题、Live2D 桌宠加载与模型资源、
 侧边栏人格编辑、背景管理器，这些骨架都来自 under_ocean，不是我们写的。
