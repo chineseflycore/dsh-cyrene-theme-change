@@ -88,6 +88,21 @@
 | 持久化 | 宿主半自带 fenced 路由 `/cyrene/state`（GET 读 / POST 写），落盘到 `$DSH_HOME/cyrene-theme.json`（默认 `~/.dsh/cyrene-theme.json`）。写入走**乐观并发**：写请求必须带上 GET 拿到的 `rev`，缺 `rev`（旧版客户端半 / 手搓脚本）→ 400 `client-outdated`，`rev` 过期 → 409 `stale` —— 没刷新的旧页面不可能再把别处的改动盖回去。 |
 | 对话界面 | **新会话欢迎页**：客户端半占用 `conversation.hero.brand.mark` 这个单占位槽（官方 brand 包不占它，默认渲染才是那个动态鱼；DSH Desktop 的桌面模块在 p0 占着同一个槽，所以本包用 `priority:-1` 盖住），改成昔涟的整张贴纸（带 alpha 的 Q 版立绘，不画边框底盘）+ 一句粉白渐变艺术字欢迎语，整行是纯装饰（点不响、选不中、拖不动）；贴纸字节走宿主半的 `GET /cyrene/hero`，图片路径来自 `state.hero.image`。**输入框占位提示**：原生那句写在 `[data-composer-placeholder]` 的文本节点里、没有 i18n 覆盖的口子，所以用纯 CSS（把原字染透明 + 自己的 `::after` 写一句「有问题？有任务？来找昔涟♪」）替换，不动 DOM、不碰宿主词典。**悬浮毛玻璃**：输入框卡片的 `backdrop-filter` 画在 `::before` 上而不是卡片本身，否则会破坏发送键那个未开 portal 的 fixed Tooltip 的定位、鼠标停上去时界面闪烁（详见「已知坑」）。详见「对话界面微调」。 |
 
+## 纯文本对话模式（预设，可选）
+
+包里带一个 DSH agent 预设 `preset/chat/`：**整份替换系统提示词**、只挂联网搜索，不挂文件 / Shell / 设备工具。适合「只想和昔涟聊聊天」。
+
+```sh
+node scripts/install-preset.mjs --dry-run   # 先看计划
+node scripts/install-preset.mjs             # 拷到 <DSH_HOME>/.agent-presets/chat/
+```
+
+装完重启 DSH，在预设列表里选「纯文本对话模式」。
+
+- 人设文本来自 Cyrene-Agent（MIT，Playa），经 DSH-Cyrene（Cyrene-xl，MIT）的 DSH 装配版移植；正文里的 `{{user_nickname}}` / `{{cyrene_memory}}` 已改成静态文本，不依赖额外的变量注册者
+- 主题 / 表情包 / 角色面板不受影响——预设只换人格与工具，不换皮肤
+- **记忆与世界书暂未接入这个预设**（人格里的记忆段落已改成静态文本）；要带记忆的纯聊天，等下一版把变量接进来
+
 ## 安装
 
 从本地目录（开发时就地改）：
@@ -193,7 +208,7 @@ dsh plugin --profile desktop add github:chineseflycore/dsh-cyrene-theme-change
 
 ## 表情包
 
-素材（11 张，`meme/`）与清单（`stickers.json`）都在包里，清单是唯一真相：
+素材（61 张，`meme/`）与清单（`stickers.json`）都在包里，清单是唯一真相。其中 11 张是手写的中文命名表情；另外 50 张来自 [Cyrene-Agent](https://github.com/Playa-Cyrene/Cyrene-Agent)（MIT，Copyright (c) 2026 Playa）的内置表情包，保留原英文文件名，语义标签（`when`）取自它的 `src/main/sticker-descriptions.ts`：
 
 ```json
 { "version": 1, "dir": "meme", "maxPerTurn": 1,
@@ -203,6 +218,7 @@ dsh plugin --profile desktop add github:chineseflycore/dsh-cyrene-theme-change
 
 - `dir` 相对包根，`file` 相对插件目录；**只认包内的文件**（越界的路径会进 `missing`，不会被执行）。
 - 文件名就是表情名字（`超开心.png`、`点赞.jpeg`……）——文件名跟着 `label` 走，原始的时间戳/哈希名已经用 `node tools/rename-stickers.mjs` 改掉了（先 `--dry` 看一眼）。加新图时把文件丢进 `meme/`、在清单里按同样的命名写好 `file`，再跑一次这个脚本就能对齐；改名失败会整批回滚，不会留下"文件改了、清单没改"的半截状态。
+- 例外：来自 Cyrene-Agent 的 50 张保留原英文文件名（`playful.png`、`Thanks.jpg`……），不参与上面那个改名脚本；它们的 `label` 是中文短语、`file` 仍指原名。这 50 张里含 43 张 `.jpg`、2 张 `.webp`，`package.json` 的 `files` 已同步包含这几种扩展名。
 - 换图/加图只改清单——插件本体不用重装，页面刷新一次即可（宿主半要重载插件行才认新文件，见上面那张生效表）。
 - 一张图超过 8MB、或扩展名不在 `png/jpg/jpeg/gif/webp/avif` 里，也会进 `missing` 并在 `GET /cyrene/stickers` 的响应里报出来。
 

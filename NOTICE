@@ -58,6 +58,14 @@ SPDX-License-Identifier: MIT
         https://github.com/chineseflycore/xilian-agi-like-test
     仅参考算法思路，代码按本项目风格重新实现。
 
+二之二、纯文本对话模式的预设（preset/chat/）
+    人设文本来自 Cyrene-Agent（MIT，Copyright (c) 2026 Playa），
+    经 DSH-Cyrene（Cyrene-xl，MIT）的 DSH 装配版移植：
+      https://github.com/Cyrene-xl/DSH-Cyrene
+    该预设沿用其「整份替换系统提示词 + 只挂联网搜索」的装配方式；
+    正文里的模板变量已改成静态文本，不再依赖额外的变量注册者。
+    角色 IP 归 HoYoverse / 米哈游所有，非商业同人用途。
+
 三、Live2D 模型（assets/cyrene/）
     模型作者：是依七哒（B 站个人空间 457683484）。
     授权沿革：
@@ -81,6 +89,15 @@ SPDX-License-Identifier: MIT
     © miHoYo / HoYoverse。
     本插件为非官方同人作品，与 miHoYo、HoYoverse 及其关联方无任何关联，
     也未获得其授权或背书。
+
+六、表情包素材（meme/ 下 50 张外来表情）
+    来源：Cyrene-Agent（MIT，Copyright (c) 2026 Playa）
+          https://github.com/Playa-Cyrene/Cyrene-Agent
+    取自其 src/renderer/public/stickers/，按原英文文件名收录；
+    语义标签（when）取自其 src/main/sticker-descriptions.ts。
+    角色形象版权归 © miHoYo / HoYoverse（见第五节）。
+    本项目按 MIT 分发这 50 张素材；如权利人认为授权范围不包括本项目，
+    请通过 Issues 联系，收到通知后立即移除。
 
 如权利人认为上述任何内容的使用不妥，请通过项目仓库的 Issues 联系，
 收到通知后将尽快移除相应内容。

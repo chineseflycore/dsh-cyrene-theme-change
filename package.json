@@ -12,7 +12,8 @@
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./preset-memory": "./preset/chat/memory.js"
   },
   "dsh": {
     "bundle": {
@@ -32,11 +33,17 @@
     "assets/cyrene",
     "meme/*.png",
     "meme/*.jpeg",
+    "meme/*.jpg",
+    "meme/*.gif",
+    "meme/*.webp",
     "tools/*.mjs",
     "docs/*.md",
     "README.md",
     "LICENSE",
-    "NOTICE"
+    "NOTICE",
+    "assets/characters",
+    "preset/**",
+    "scripts/*.mjs"
   ],
   "keywords": [
     "dsh",

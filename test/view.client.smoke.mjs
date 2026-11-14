@@ -389,16 +389,16 @@ ok(
 ok('body 打了 data-dsh-cyrene', globalThis.document.body.attrs['data-dsh-cyrene'] === '', globalThis.document.body.attrs)
 
 ok(
-  '三个槽位都 inject 了',
-  box.injected.join(',') === 'sidebar.footer.action,settings.section,conversation.hero.brand.mark',
+  '四个槽位都 inject 了',
+  box.injected.join(',') === 'sidebar.footer.action,settings.section,conversation.hero.brand.mark,conversation.session.header.actions',
   box.injected,
 )
 const ids = box.registered.map((r) => r.registration.id)
 ok('前两个槽位的 id', ids.slice(0, 2).join(',') === 'cyrene-persona,cyrene-theme', ids)
 ok('槽位 order 20 / 30', box.registered[0].registration.order === 20 && box.registered[1].registration.order === 30)
 ok(
-  '槽位 name 依次是 sidebar.footer.action / settings.section / conversation.hero.brand.mark',
-  box.registered.map((r) => r.registration.name).join(',') === 'sidebar.footer.action,settings.section,conversation.hero.brand.mark',
+  '槽位 name 依次是 sidebar / settings / hero / session.header.actions',
+  box.registered.map((r) => r.registration.name).join(',') === 'sidebar.footer.action,settings.section,conversation.hero.brand.mark,conversation.session.header.actions',
   box.registered.map((r) => r.registration),
 )
 ok(
@@ -425,8 +425,8 @@ try {
 }
 ok('宿主占用欢迎页槽位时 apply 不抛（失败不外溢）', conflictError === null, conflictError && conflictError.message)
 ok(
-  '冲突时其它两个槽位照常注册',
-  conflictBox.registered.map((r) => r.registration.name).join(',') === 'sidebar.footer.action,settings.section',
+  '冲突时其它三个槽位照常注册',
+  conflictBox.registered.map((r) => r.registration.name).join(',') === 'sidebar.footer.action,settings.section,conversation.session.header.actions',
   conflictBox.registered.map((r) => r.registration.name),
 )
 
@@ -462,7 +462,7 @@ const box3 = makeCtx()
 boot3.exports.apply(box3.ctx)
 await tick()
 ok('读不到宿主也照样装上（skin 退回本地默认 on）', globalThis.document.body.attrs['data-cyrene-skin'] === 'on', globalThis.document.body.attrs)
-ok('槽位仍然注册了', box3.registered.length === 3)
+ok('槽位仍然注册了', box3.registered.length === 4)
 
 // ── 6. 编辑器真的跑起来：只发改动字段 + rev 契约 + 409 冲突后自动重新载入
 const REV7 = { ok: true, value: { ...RESPONSE.value, rev: 7, theme: true, version: '0.1.1' } }

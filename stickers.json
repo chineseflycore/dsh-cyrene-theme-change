@@ -76,9 +76,409 @@
     {
       "id": "poor",
       "label": "心疼钱",
-      "file": "meme/心疼钱.jpeg",
+      "file": "meme/poorwallet.jpg",
       "when": "聊到花销、账单、被扣费这类话题时逗一下",
-      "note": "抱着空钱包哭，下方写着「呜呜呜呜我的钱」"
+      "note": "（高清版：取自 Cyrene-Agent 的 poorwallet.jpg，1344×1344）"
+    },
+    {
+      "id": "playful",
+      "label": "你看人家嘛",
+      "file": "meme/playful.png",
+      "when": "你看人家嘛",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "love-happy",
+      "label": "好开心，喜欢你",
+      "file": "meme/love-happy.png",
+      "when": "好开心，喜欢你",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "confident",
+      "label": "交给人家，放心",
+      "file": "meme/confident.png",
+      "when": "交给人家，放心",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "serious",
+      "label": "说正经的，听好了",
+      "file": "meme/serious.png",
+      "when": "说正经的，听好了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "calm",
+      "label": "静静陪着你就好",
+      "file": "meme/calm.png",
+      "when": "静静陪着你就好",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "peek",
+      "label": "偷偷看一眼",
+      "file": "meme/peek.webp",
+      "when": "偷偷看一眼",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "clingy-confused",
+      "label": "等等人家嘛",
+      "file": "meme/clingy-confused.webp",
+      "when": "等等人家嘛",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "HI",
+      "label": "嗨，想我了吗",
+      "file": "meme/HI.jpg",
+      "when": "嗨，想我了吗",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "hello",
+      "label": "嗨，你来啦",
+      "file": "meme/hello.jpg",
+      "when": "嗨，你来啦",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "goodmoring1",
+      "label": "早安，刚睡醒呢",
+      "file": "meme/goodmoring1.jpg",
+      "when": "早安，刚睡醒呢",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "goodnight",
+      "label": "晚安，先睡了",
+      "file": "meme/goodnight.jpg",
+      "when": "晚安，先睡了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "teatime",
+      "label": "说来听听，吃瓜了",
+      "file": "meme/teatime.jpg",
+      "when": "说来听听，吃瓜了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "eating",
+      "label": "饿了，先吃点东西",
+      "file": "meme/eating.jpg",
+      "when": "饿了，先吃点东西",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Allset",
+      "label": "搞定，交给我吧",
+      "file": "meme/Allset.jpg",
+      "when": "搞定，交给我吧",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "OK",
+      "label": "好的，没问题",
+      "file": "meme/OK.jpg",
+      "when": "好的，没问题",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "copythat",
+      "label": "收到，明白了",
+      "file": "meme/copythat.jpg",
+      "when": "收到，明白了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Thumbsup",
+      "label": "厉害，给你点赞",
+      "file": "meme/Thumbsup.jpg",
+      "when": "厉害，给你点赞",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "awesome",
+      "label": "太厉害了，给你点赞",
+      "file": "meme/awesome.jpg",
+      "when": "太厉害了，给你点赞",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "sogood",
+      "label": "真不错，太满意了",
+      "file": "meme/sogood.jpg",
+      "when": "真不错，太满意了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "sonice",
+      "label": "太好了，成了",
+      "file": "meme/sonice.jpg",
+      "when": "太好了，成了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "fighting",
+      "label": "加油，你可以的",
+      "file": "meme/fighting.jpg",
+      "when": "加油，你可以的",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "hellyeah",
+      "label": "对对对，就是这个",
+      "file": "meme/hellyeah.jpg",
+      "when": "对对对，就是这个",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Thanks",
+      "label": "谢谢你呀",
+      "file": "meme/Thanks.jpg",
+      "when": "谢谢你呀",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "foryou",
+      "label": "这个给你的",
+      "file": "meme/foryou.jpg",
+      "when": "这个给你的",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "blushhard",
+      "label": "人家脸红了啦",
+      "file": "meme/blushhard.jpg",
+      "when": "人家脸红了啦",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "shyshort",
+      "label": "有点不好意思",
+      "file": "meme/shyshort.jpg",
+      "when": "有点不好意思",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "hmph",
+      "label": "哼，生气了哦",
+      "file": "meme/hmph.jpg",
+      "when": "哼，生气了哦",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "hugtight",
+      "label": "来，抱抱你",
+      "file": "meme/hugtight.jpg",
+      "when": "来，抱抱你",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Airkiss",
+      "label": "飞吻，接好了",
+      "file": "meme/Airkiss.jpg",
+      "when": "飞吻，接好了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Gigglelots",
+      "label": "哈哈，太好笑了",
+      "file": "meme/Gigglelots.jpg",
+      "when": "哈哈，太好笑了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "thinking",
+      "label": "让我想想",
+      "file": "meme/thinking.jpg",
+      "when": "让我想想",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "putmd",
+      "label": "无语了，不想说话",
+      "file": "meme/putmd.jpg",
+      "when": "无语了，不想说话",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Whatswrong",
+      "label": "怎么了，发生什么了",
+      "file": "meme/Whatswrong.jpg",
+      "when": "怎么了，发生什么了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "midmeh",
+      "label": "还行吧，就那样",
+      "file": "meme/midmeh.jpg",
+      "when": "还行吧，就那样",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "awkward",
+      "label": "这…有点尴尬",
+      "file": "meme/awkward.jpg",
+      "when": "这…有点尴尬",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Madnow",
+      "label": "这次真的生气了",
+      "file": "meme/Madnow.jpg",
+      "when": "这次真的生气了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Hurtcry",
+      "label": "好难过，忍不住了",
+      "file": "meme/Hurtcry.jpg",
+      "when": "好难过，忍不住了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Sobbinghard",
+      "label": "感动得哭了",
+      "file": "meme/Sobbinghard.jpg",
+      "when": "感动得哭了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "weeploud",
+      "label": "好委屈，哭出来了",
+      "file": "meme/weeploud.jpg",
+      "when": "好委屈，哭出来了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "PanincCrying",
+      "label": "忍不住了，好难过",
+      "file": "meme/PanincCrying.jpg",
+      "when": "忍不住了，好难过",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "missme",
+      "label": "想我了吗",
+      "file": "meme/missme.jpg",
+      "when": "想我了吗",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Free",
+      "label": "放假啦，自由了",
+      "file": "meme/Free.jpg",
+      "when": "放假啦，自由了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Dreak",
+      "label": "不想动了，放过我吧",
+      "file": "meme/Dreak.jpg",
+      "when": "不想动了，放过我吧",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "outfast",
+      "label": "溜了溜了",
+      "file": "meme/outfast.jpg",
+      "when": "溜了溜了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "Vcayover",
+      "label": "假期结束了，不想回去",
+      "file": "meme/Vcayover.jpg",
+      "when": "假期结束了，不想回去",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "sleepynow",
+      "label": "困了，想睡觉",
+      "file": "meme/sleepynow.jpg",
+      "when": "困了，想睡觉",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "deadtired",
+      "label": "累趴了，动不了了",
+      "file": "meme/deadtired.jpg",
+      "when": "累趴了，动不了了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "sotired",
+      "label": "好累，趴一会儿",
+      "file": "meme/sotired.jpg",
+      "when": "好累，趴一会儿",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "giveup",
+      "label": "摆了，不干了",
+      "file": "meme/giveup.jpg",
+      "when": "摆了，不干了",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
+    },
+    {
+      "id": "please",
+      "label": "求求你了嘛",
+      "file": "meme/please.jpg",
+      "when": "求求你了嘛",
+      "note": "Cyrene-Agent 内置表情包",
+      "prompt": true
     }
   ]
 }
