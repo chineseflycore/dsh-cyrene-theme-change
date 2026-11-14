@@ -75,6 +75,16 @@ await CM.forgetAllForCharacter('aglaea')
 const cleared = await CM.loadCharacterMemory('aglaea')
 ok('清空后归零', cleared.items.length === 0, cleared.items)
 
+console.log('\n记忆整理')
+
+// 跨批不漂移：12 条按 10/批整理，必须全部处理（曾经边遍历边 splice，后 2 条被跳过）。
+const many = Array.from({ length: 12 }, (_, i) => ({ id: `mem-test-${String(i).padStart(4, '0')}`, text: `条目 ${i}`, tags: [] }))
+const fakeManager = { organize: async (chunk) => ({ drop: chunk.map((c) => c.id), merge: [] }) }
+const organized = await CORE.organizeItems(many, fakeManager, { batchSize: 10 })
+ok('全量整理：12 条全部被处理（跨批不漂移）',
+  organized.removed === 12 && organized.scanned === 12 && organized.items.length === 0,
+  organized)
+
 console.log('\n委托状态')
 
 DS.resetDelegations()
