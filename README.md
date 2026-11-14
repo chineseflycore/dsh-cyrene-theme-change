@@ -12,6 +12,9 @@
 >
 > 链条：`dsh-plugin-cyrene`（原创 under_ocean）→ `dsh-cyrene-theme`（本仓直接上游）→ **本仓库**
 >
+> 本仓库在 GitHub 上是 [`berhbro/dsh-cyrene-theme`](https://github.com/berhbro/dsh-cyrene-theme) 的 **fork**（保留 fork 关系），
+> 并在它基础上做了大量独立开发；fork 关系只表示代码血统，不代表上游认可或背书。
+>
 > **两条血脉**（重要）：
 > - **骨架**：主题、桌宠、人格编辑、背景管理 —— 来自 `dsh-cyrene-theme` / `dsh-plugin-cyrene`；
 > - **灵魂**：认知记忆、关系情绪、世界书、黄金裔委托、纯文本对话模式 —— 思路与素材来自
